@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,">
         <title>Riddles</title>
+        <script src="js/Riddle.js"></script>
     </head>
     <body style="background-color: grey; font-family: sans-serif; font-size: larger; color: darkblue; text-align: center;">
        <div id="container" style="width: 970px; padding: 10px;">
@@ -14,75 +15,55 @@
                 <a class="btn" href="Index.html">Home</a>
                 <a class="btn" href="riddles.html">Riddles</a>
             </div>
-            <!--JavaSript Necessary to have popup answer-->
-            <script>
-                /* Riddle Answers */
-                var ridAns1 = "An Egg!"
-                var ridAns2 = "A Candle!"
-                var ridAns3 = "All of Them!"
-                var ridAns4 = "A Sponge!"
-                var ridAns5 = "Are You Asleep Yet?"
-                var ridAns6 = "The Future!"
-                var ridAns7 = "There Aren't Any, It's a One-Story House!"
-                var ridAns8 = "A Promise!"
-                var ridAns9 = "Your Age!"
-                var ridAns10 = "He Was Bald!"
+            <!--Riddle 1-->
+            <h2>What has to be broken before you can use it?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('An Egg!','Answer1')">
+            <span id="Answer1"></span>
 
-                /* Functions to have pop up */    
-                function Riddle1(){
-                    console.log(ridAns1);
-                    alert(ridAns1);
-                }
-                function Riddle2(){
-                    console.log(ridAns2);
-                    alert(ridAns2);
-                }
-                function Riddle3(){
-                    console.log(ridAns3);
-                    alert(ridAns3);
-                }
-                function Riddle4(){
-                    console.log(ridAns4);
-                    alert(ridAns4);
-                }
-                function Riddle5(){
-                    console.log(ridAns5);
-                    alert(ridAns5);
-                }
-                function Riddle6(){
-                    console.log(ridAns6);
-                    alert(ridAns6);
-                }
-                function Riddle7(){
-                    console.log(ridAns7);
-                    alert(ridAns7);
-                }
-                function Riddle8(){
-                    console.log(ridAns8);
-                    alert(ridAns8);
-                }
-                function Riddle9(){
-                    console.log(ridAns9);
-                    alert(ridAns9);
-                }
-                function Riddle10(){
-                    console.log(ridAns10);
-                    alert(ridAns10);
-                }
-            </script>
+            <!--Riddle 2-->
+            <h2>I’m tall when I’m young, and I’m short when I’m old. What am I?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('A candle!','Answer2')">
+            <span id="Answer2"></span>
 
-            <h2 onclick="Riddle1()">1) What has to be broken before you can use it?</h2>
-            <h2 onclick="Riddle2()">2) I’m tall when I’m young, and I’m short when I’m old. What am I?</h2>
-            <h2 onclick="Riddle3()">3) What month of the year has 28 days?</h2>
-            <h2 onclick="Riddle4()">4) What is full of holes but still holds water?</h2>
-            <h2 onclick="Riddle5()">5) What question can you never answer yes to?</h2>
-            <h2 onclick="Riddle6()">6) What is always in front of you but can’t be seen?</h2>
-            <h2 onclick="Riddle7()">7) There’s a one-story house in which everything is yellow. Yellow walls, 
-                                       yellow doors, yellow furniture. What color are the stairs?</h2>
-            <h2 onclick="Riddle8()">8) What can you break, even if you never pick it up or touch it?</h2>
-            <h2 onclick="Riddle9()">9) What goes up but never comes down?</h2>
-            <h2 onclick="Riddle10()">10) A man who was outside in the rain without an umbrella or hat didn’t 
-                                         get a single hair on his head wet. Why?</h2>
+            <!--Riddle 3-->
+            <h2>What month of the year has 28 days?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('All of them!','Answer3')">
+            <span id="Answer3"></span>
+
+            <!--Riddle 4-->
+            <h2>What is full of holes but still holds water?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('A Sponge!','Answer4')">
+            <span id="Answer4"></span>
+
+            <!--Riddle 5-->
+            <h2>What question can you never answer yes to?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('Are you asleep yet?','Answer5')">
+            <span id="Answer5"></span>
+
+            <!--Riddle 6-->
+            <h2>What is always in front of you but can’t be seen?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('The future!','Answer6')">
+            <span id="Answer6"></span>
+
+            <!--Riddle 7-->
+            <h2>There’s a one-story house in which everything is yellow. Yellow walls, yellow doors, yellow furniture. What color are the stairs?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('There aren’t any—it’s a one-story house.!','Answer7')">
+            <span id="Answer7"></span>
+
+            <!--Riddle 8-->
+            <h2>What can you break, even if you never pick it up or touch it?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('A promise','Answer8')">
+            <span id="Answer8"></span>
+
+            <!--Riddle 9-->
+            <h2>What goes up but never comes down?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('Your age!','Answer9')">
+            <span id="Answer9"></span>
+
+            <!--Riddle 10-->
+            <h2>A man who was outside in the rain without an umbrella or hat didn’t get a single hair on his head wet. Why?</h2>
+            <input type="button" value="Answer" onclick="showAnswer('He was bald!','Answer10')">
+            <span id="Answer10"></span>
 
 
             <!--Footer (copyright)-->
