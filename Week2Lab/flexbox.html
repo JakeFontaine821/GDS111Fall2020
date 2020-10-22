@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout Demo</title>
+    <style>
+        /*CSS will go here*/
+        html,body{
+            /*setting full height of page*/
+            /*height: 100%;*/
+            /*makes it so it wraps side by side*/
+            display: flex;
+            /*moves text to center of page*/
+            justify-content: center;
+            /*background color set to grey*/
+            background-color: gray;
+            /*background image*/
+            background-image: url(Images/double-bubble-dark.png);
+            /*background image will repeat over and over by default
+            background-repeat: ; will allow to specify the terms of its repeating*/
+        }
+
+        #container{
+            width: 1000px;
+            /*height: 100%;*/
+            background-color: rgba(0, 255, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+
+        }
+
+         #header{
+             background-color: tomato;
+             text-align: center;
+         }
+        
+         #nav{
+             background-color: purple;
+             display: flex;
+             justify-content: center;
+         }
+
+         #content{
+             background-color: teal;
+             display: flex;
+         }
+
+         #footer{
+             background-color: yellow;
+             text-align: center;
+             line-height: 100px;
+         }
+
+         .btn:link{
+             background-color: yellow;
+             color: black;
+             padding: 10px;
+             margin: 20px 20px 20px 0;
+             font-size: larger;
+             text-decoration: none;
+             font-family: Arial, Helvetica, sans-serif;
+             border-radius: 15px;
+             box-shadow: 6px 6px rgba(0, 0, 0, 0.459);
+         }
+         .btn:visited{
+            color: black;
+         }
+         .btn:hover{
+             background-color: darkgray;
+         }
+         .btn:active{
+             background-color: green;
+         }
+         .content-left{
+            width: 500px;
+            height: 500px;
+            background-color: darkred;
+         }
+         .content-right{
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+         }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>Welcome to The Flexbox Div Page</h1>
+        </div>
+        <div id="nav">
+            <a href="#" class="btn">Home</a>
+            <a href="#" class="btn">Bio</a>
+            <a href="#" class="btn">Images</a>
+            <a href="#" class="btn">Contact</a>
+        </div>
+        <div id="content">
+            <div class="content-left">
+                Left Content Will Be Here
+                <p style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac diam a lacus consectetur pulvinar quis quis metus. Aliquam pharetra elit nec blandit porta. Proin posuere congue vehicula. Morbi eget velit turpis. Ut eget hendrerit turpis, ac maximus sapien. Etiam euismod, libero tincidunt bibendum venenatis, eros felis interdum velit, vel volutpat felis mi eget ex. Integer laoreet vitae lorem non iaculis. Phasellus a molestie risus. Donec efficitur fermentum libero, viverra ullamcorper purus fermentum ac. Vestibulum mattis ultricies risus, et venenatis nibh tincidunt vel. Nam nec turpis a ligula euismod finibus. Vestibulum quis consequat justo.</p>
+            </div>
+            <div class="content-right">Right Content Will Be Here
+                <img src="Images/Yoshi.png" alt="Yoshi Do Be Lookin Fresh Tho" width="450px">
+            </div>
+        </div>
+        <div id="footer">
+            &copy; 2020 Jake Fontaine New England Institute of Technology
+        </div>
+    </div>
+</body>
+</html>
