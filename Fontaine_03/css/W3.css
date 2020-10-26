@@ -1,0 +1,83 @@
+html,body{
+    height: 115%;
+    display: flex;
+    justify-content: center;
+    background-image: url(../Images/double-bubble-dark.png);
+}
+
+#main-container{
+    width: 1000px;
+    padding: 10px;
+    background-color: blanchedalmond;
+}
+
+#header{
+    width: 980px;
+    height: 100px;
+    padding: 10px;
+    background-color: rgb(82, 82, 82);
+    line-height: 100px;
+    color: white;
+    font-family: cursive;
+    font-size: xx-large;
+}
+
+#nav{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(126, 0, 0, 0.7);
+    border: 1px solid black;
+}
+
+.btn{
+    width: 100px;
+    height: 48px;
+    background-color: black;
+    color: white;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.btn:hover{
+    background-color: red;
+}
+
+.btn:active{
+    background-color: grey;
+}
+
+#content{
+    width: 960px;
+    padding: 10px;
+    background-color: #00000073;
+    margin-top: 10px;
+    border-bottom: 3px solid black;
+}
+
+.title{
+    width: 960px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.884);
+    text-align: center;
+    color: white;
+}
+
+#img{   
+    margin-left: 360px;
+}
+
+.txt{
+    width: 960px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+#footer{
+    width: 960px;
+    text-align: center;
+    font-size: 12px;
+}
