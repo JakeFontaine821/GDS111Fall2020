@@ -1,0 +1,45 @@
+/*CSS goes here*/
+
+html,body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Syne Mono', monospace;
+}
+
+#container{
+    width: 1000px;
+    padding: 10px;
+    background-color: cornflowerblue;
+}
+
+/*whole page is white because of this shit*/
+header{
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+nav{
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+canvas{
+    border: 1px solid black;
+    background-color: white;
+}
+
+footer{
+    background-color: white;
+    margin-bottom: 10px;
+}
