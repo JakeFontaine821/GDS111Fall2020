@@ -32,6 +32,9 @@ function draw() {
     //clear the screen
     ctx.clearRect(0, 0, c.width, c.height);
 
+    //draws mario
+    ctx.drawImage(mario, x, 100, 100, 100);
+
     //draws text
     ctx.fillStyle = 'Blue';
     ctx.lineWidth = 1;
@@ -43,7 +46,6 @@ function draw() {
 
     drawStartLine();
     drawFinishLine();
-    drawSprite();
     drawCar();
     drawFuelBar();
     drawFuelText();
@@ -66,10 +68,6 @@ function draw() {
     }
 }
 
-function drawSprite(){
-    //draws mario
-    ctx.drawImage(mario, x, 100, 100, 100);
-}
 
 function runStartTimer(){
     frames -= 1;
