@@ -31,14 +31,18 @@ nav{
 main{
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 
 canvas{
     border: 1px solid black;
     background-color: white;
+    margin-bottom: 10px;
 }
 
 footer{
     background-color: white;
     margin-bottom: 10px;
+    text-align: center;
+    line-height: 50px;
 }
