@@ -43,8 +43,8 @@ function draw() {
 
     drawStartLine();
     drawFinishLine();
-    drawCar();
     drawSprite();
+    drawCar();
     drawFuelBar();
     drawFuelText();
 
