@@ -3,8 +3,8 @@
 var c = document.querySelector('canvas');
 var ctx = c.getContext('2d');
 
-var mario = new Image();
-mario.src = 'Images/mario.png'
+var Hermes = new Image();
+Hermes.src = 'Images/Hermes.png'
 
 // this starts timer for animation
 var timer = requestAnimationFrame(draw);
@@ -44,7 +44,7 @@ function draw() {
     drawStartLine();
     drawFinishLine();
     drawCar();
-    mario.onload = drawSprite();
+    Hermes.onload = drawSprite();
    
     drawFuelBar();
     drawFuelText();
@@ -68,8 +68,8 @@ function draw() {
 }
 
 function drawSprite(){
-    //draws mario
-    ctx.drawImage(mario, x, 100, 100, 100);
+    //draws Hermes
+    ctx.drawImage(Hermes, x, 100, 200, 150);
 }
 
 
