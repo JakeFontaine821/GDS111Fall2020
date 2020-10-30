@@ -44,7 +44,8 @@ function draw() {
     drawStartLine();
     drawFinishLine();
     drawCar();
-    drawSprite();
+    mario.onload = drawSprite();
+   
     drawFuelBar();
     drawFuelText();
 
@@ -70,6 +71,7 @@ function drawSprite(){
     //draws mario
     ctx.drawImage(mario, x, 100, 100, 100);
 }
+
 
 function runStartTimer(){
     frames -= 1;
