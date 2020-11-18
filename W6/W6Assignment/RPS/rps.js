@@ -167,6 +167,7 @@ function drawStuff(){
     // "you"
     ctx.font = "40px Arial";
     ctx.fillStyle = "Red";
+    ctx.textAlign = "center";
     ctx.fillText("Your Choice", 120, 40);
 
     // Blue Line
