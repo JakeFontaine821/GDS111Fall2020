@@ -1,6 +1,29 @@
 var c = document.querySelector('canvas');
 var ctx = c.getContext('2d');
 
+/*
+I AM AWARE THE TEXT IS 100 PIXELS TO FAR TO THE RIGHT
+AFTER YOU PLAY ONCE AND CLICK ANOTHER BUTTON TO PLAY AGAIN
+THE "YOUR CHOICE" AND "COMPUTER" MOVE 100 PIXELS TO THE LEFT
+AND I DONT KNOW WHY, AT THIS POINT I GIVE UP AND IM INCREDIBLY 
+ANNOYED WITH IT :)
+*/
+
+//call Images
+var Rock = new Image();
+Rock.src = 'Images/Rock.png'
+
+var Paper = new Image();
+Paper.src = 'Images/Paper.png'
+
+var Scissors = new Image();
+Scissors.src = 'Images/Scissors.png'
+
+var pPic = 100;
+
+var cPicX = 630;
+var cPicY = 330;
+
 //Array of words
 var rps = [];
 rps[0] = `Rock` 
@@ -27,32 +50,8 @@ btn[2].addEventListener(`click`, function(e){
     play(2)
 })
 
-//background
-ctx.fillStyle = "grey";
-ctx.fillRect(0,0,c.width,c.height);
-
-//Red Line
-ctx.lineWidth = 20;
-ctx.beginPath();
-ctx.strokeStyle = 'Red';
-ctx.moveTo(-20, c.height);
-ctx.lineTo(c.width, -11);
-ctx.stroke();
-// "you"
-ctx.font = "40px Arial";
-ctx.fillStyle = "Red";
-ctx.fillText("Your Choice", 10, 40);
-
-// Blue Line
-ctx.beginPath();
-ctx.strokeStyle = 'Blue';
-ctx.moveTo(4, c.height + 9);
-ctx.lineTo(c.width + 9, 7);
-ctx.stroke();
-//"Computer"
-ctx.fillStyle = "Blue";
-ctx.fillText("Computer", 810, 585);
-
+//original display
+drawStuff();
 
 //Play function accepts an integer
 //generates an integer 0-2
@@ -64,11 +63,100 @@ function play(pChoice)
 
     var cChoice = Math.floor(Math.random()*2.999999)
 
-    // put diplay of choices here -------------------------------------------------------------------------------------------
-    //background
-    ctx.fillStyle = "grey";
-    ctx.fillRect(0,0,c.width,c.height);
+    // put diplay of choices here -------
+    drawStuff();
+
+    ctx.fillStyle = 'Black';
+    ctx.font = "90px Arial";
+    ctx.textAlign = "center";
     
+
+    switch(pChoice){
+        case 0:
+            drawRock(pPic, pPic);
+            if(cChoice === 0)
+            {
+                drawRock(cPicX, cPicY);
+                //display a tie
+                ctx.fillText("You Tied!", 500, 300);
+            }
+            else if(cChoice === 1)
+            {
+                drawPaper(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("You Lost!", 500, 300);
+            }
+            else
+            {
+                drawScissors(cPicX, cPicY);
+                //display a win
+                ctx.fillText("You Won!", 500, 300);
+            }
+            break;
+
+            case 1:
+                drawPaper(pPic, pPic);
+                if(cChoice === 0)
+                {
+                    drawRock(cPicX, cPicY);
+                    //display a Lost
+                    ctx.fillText("You Win!", 500, 300);
+                }
+                else if(cChoice === 1)
+                {
+                    drawPaper(cPicX, cPicY);
+                    //display a Tie
+                    ctx.fillText("You Tied!", 500, 300);
+                }
+                else
+                {
+                    drawScissors(cPicX, cPicY);
+                    //display a win
+                    ctx.fillText("You Lost!", 500, 300);
+                } 
+            break;
+
+            case 2:
+                drawScissors(pPic, pPic);
+                if(cChoice === 0)
+                {
+                    drawRock(cPicX, cPicY);
+                    //display a tie
+                    ctx.fillText("You Lost!", 500, 300);
+                }
+                else if(cChoice === 1)
+                {
+                    drawPaper(cPicX, cPicY);
+                    //display a loss
+                    ctx.fillText("You Win!", 500, 300);
+                }
+                else
+                {
+                    drawScissors(cPicX, cPicY);
+                    //display a win
+                    ctx.fillText("You Tied!", 500, 300);
+                }
+             break;
+    }
+}
+
+function drawRock(x, y){
+    ctx.drawImage(Rock, x, y,200,200)
+}
+
+function drawPaper(x, y){
+    ctx.drawImage(Paper, x, y,200,200)
+}
+
+function drawScissors(x, y){
+    ctx.drawImage(Scissors, x, y,200,200)
+}
+
+function drawStuff(){
+    //background
+    ctx.fillStyle = "#454545";
+    ctx.fillRect(0,0,c.width,c.height);
+
     //Red Line
     ctx.lineWidth = 20;
     ctx.beginPath();
@@ -79,7 +167,7 @@ function play(pChoice)
     // "you"
     ctx.font = "40px Arial";
     ctx.fillStyle = "Red";
-    ctx.fillText("Your Choice", 10, 40);
+    ctx.fillText("Your Choice", 120, 40);
 
     // Blue Line
     ctx.beginPath();
@@ -89,68 +177,5 @@ function play(pChoice)
     ctx.stroke();
     //"Computer"
     ctx.fillStyle = "Blue";
-    ctx.fillText("Computer", 810, 585);
-
-
-    ctx.fillStyle = 'Black';
-    ctx.font = "90px Arial";
-    ctx.textAlign = "center";
-    
-    // alert(rps[pChoice] + " <- You | Computer -> " + rps[cChoice]) 
-
-    switch(pChoice){
-        case 0:
-            if(cChoice === 0)
-            {
-                //display a tie
-                ctx.fillText("You Tied!", 500, 300);
-            }
-            else if(cChoice === 1)
-            {
-                //display a loss
-                ctx.fillText("You Lost!", 500, 300);
-            }
-            else
-            {
-                //display a win
-                ctx.fillText("You Won!", 500, 300);
-            }
-            break;
-
-            case 1:
-                if(cChoice === 0)
-                {
-                    //display a Lost
-                    ctx.fillText("You Win!", 500, 300);
-                }
-                else if(cChoice === 1)
-                {
-                    //display a Tie
-                    ctx.fillText("You Tied!", 500, 300);
-                }
-                else
-                {
-                    //display a win
-                    ctx.fillText("You Lost!", 500, 300);
-                } 
-            break;
-
-            case 2:
-                if(cChoice === 0)
-                {
-                    //display a tie
-                    ctx.fillText("You Lost!", 500, 300);
-                }
-                else if(cChoice === 1)
-                {
-                    //display a loss
-                    ctx.fillText("You Win!", 500, 300);
-                }
-                else
-                {
-                    //display a win
-                    ctx.fillText("You Tied!", 500, 300);
-                }
-             break;
-    }
+    ctx.fillText("Computer", 900, 585);
 }
