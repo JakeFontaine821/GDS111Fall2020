@@ -67,7 +67,7 @@ function play(pChoice)
     drawStuff();
 
     ctx.fillStyle = 'Black';
-    ctx.font = "90px Arial";
+    ctx.font = "75px Arial";
     ctx.textAlign = "center";
     
 
@@ -78,19 +78,19 @@ function play(pChoice)
             {
                 drawRock(cPicX, cPicY);
                 //display a tie
-                ctx.fillText("You Tied!", 500, 300);
+                ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
             else if(cChoice === 1)
             {
                 drawPaper(cPicX, cPicY);
                 //display a loss
-                ctx.fillText("You Lost!", 500, 300);
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
             else
             {
                 drawScissors(cPicX, cPicY);
                 //display a win
-                ctx.fillText("You Won!", 500, 300);
+                ctx.fillText("All Luck", 500, 300);
             }
             break;
 
@@ -100,19 +100,19 @@ function play(pChoice)
                 {
                     drawRock(cPicX, cPicY);
                     //display a Lost
-                    ctx.fillText("You Win!", 500, 300);
+                    ctx.fillText("All Luck", 500, 300);
                 }
                 else if(cChoice === 1)
                 {
                     drawPaper(cPicX, cPicY);
                     //display a Tie
-                    ctx.fillText("You Tied!", 500, 300);
+                    ctx.fillText("Tied, shoulda guessed right", 500, 300);
                 }
                 else
                 {
                     drawScissors(cPicX, cPicY);
                     //display a win
-                    ctx.fillText("You Lost!", 500, 300);
+                    ctx.fillText("You're bad, not surprised LOL", 500, 300);
                 } 
             break;
 
@@ -122,19 +122,19 @@ function play(pChoice)
                 {
                     drawRock(cPicX, cPicY);
                     //display a tie
-                    ctx.fillText("You Lost!", 500, 300);
+                    ctx.fillText("You're bad, not surprised LOL", 500, 300);
                 }
                 else if(cChoice === 1)
                 {
                     drawPaper(cPicX, cPicY);
                     //display a loss
-                    ctx.fillText("You Win!", 500, 300);
+                    ctx.fillText("All Luck", 500, 300);
                 }
                 else
                 {
                     drawScissors(cPicX, cPicY);
                     //display a win
-                    ctx.fillText("You Tied!", 500, 300);
+                    ctx.fillText("Tied, shoulda guessed right", 500, 300);
                 }
              break;
     }
