@@ -1,0 +1,43 @@
+body{
+    display:flex;
+    justify-content:center;
+    background-image: url(Images/Background.jpg);
+    background-size: 100%;
+}
+
+header{
+    display:flex;
+    justify-content:center;
+    border:2px solid black;
+    background-image: url(Images/BeautifulFace.jpg);
+    background-size: 10%;
+}
+
+h1{
+    border: 1px solid black;
+    background-color: grey;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+}
+#container{
+    background-color: grey;
+    box-sizing:border-box;
+    width:1018px;
+    border:1px solid black;
+    padding:7px;
+}
+canvas{
+    border: 1px solid black;
+    box-sizing:border-box;
+}
+a:link, a:visited{
+    display:inline-block;
+    background-color:yellow;
+    padding:10px;
+    margin:20px;
+    border-radius: 15px;
+    font-weight: bold;
+}

@@ -3,13 +3,13 @@ var ctx = c.getContext('2d');
 
 //call Images
 var Rock = new Image();
-Rock.src = 'Images/Rock.png'
+Rock.src = 'Images/rock.jpg'
 
 var Paper = new Image();
-Paper.src = 'Images/Paper.png'
+Paper.src = 'Images/paper.jpg'
 
 var Scissors = new Image();
-Scissors.src = 'Images/Scissors.png'
+Scissors.src = 'Images/scissors.jpg'
 
 // player and computer pictures x and y
 var pPic = 100;
@@ -147,7 +147,7 @@ function drawScissors(x, y){
 
 function drawStuff(){
     //background
-    ctx.fillStyle = "#454545";
+    ctx.fillStyle = "white";
     ctx.fillRect(0,0,c.width,c.height);
 
     //Red Line

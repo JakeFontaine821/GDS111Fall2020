@@ -50,7 +50,6 @@ function GameObject(){
     this.move = function(){
         this.x += this.speed;
     }
-
 }
 
 //creates instance of startline
