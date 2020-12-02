@@ -1,0 +1,39 @@
+body{
+    display:flex;
+    justify-content:center;
+    background-image: url(Images/Background.jpg);
+    background-size: 50%;
+}
+#container{
+    background-color: grey;
+    box-sizing:border-box;
+    width:1018px;
+    border:1px solid black;
+    padding:7px;
+}
+header{
+    display:flex;
+    justify-content:center;
+    border:2px solid black;
+}
+nav{
+    display:flex;
+    justify-content:center;
+}
+a:link, a:visited{
+    display:inline-block;
+    background-color:yellow;
+    padding:10px;
+    margin:20px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+a:hover{
+    background-color:orange;
+}
+canvas{
+    border: 1px solid black;
+    box-sizing:border-box;
+    background-image: url(images/Crowd.jpg);
+    background-size: 100%;
+}
