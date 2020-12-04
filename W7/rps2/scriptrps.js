@@ -2,14 +2,20 @@ var c = document.querySelector('canvas');
 var ctx = c.getContext('2d');
 
 //call Images
-var Rock = new Image();
-Rock.src = 'Images/Rock.png'
+var banana = new Image();
+banana.src = 'Images/Banana.png'
 
-var Paper = new Image();
-Paper.src = 'Images/Paper.png'
+var apple = new Image();
+apple.src = 'Images/apple.png'
 
-var Scissors = new Image();
-Scissors.src = 'Images/Scissors.png'
+var grapes = new Image();
+grapes.src = 'Images/Grapes.png'
+
+var strawberry = new Image();
+strawberry.src = 'Images/strawberry.png'
+
+var watermelon = new Image();
+watermelon.src = 'Images/watermelon.png'
 
 // player and computer pictures x and y
 var pPicX = 250;
@@ -25,9 +31,11 @@ var CompW = 0;
 
 //Array of words
 var rps = [];
-rps[0] = `Rock` 
-rps[1] = `Paper`
-rps[2] = `Scissors`
+rps[0] = `Banana` 
+rps[1] = `Apple`
+rps[2] = `Grapes`
+rps[3] = `Strawberry`
+rps[4] = `Watermelon`
 
 //Array of Buttons
 var btn = document.querySelectorAll(`a`)
@@ -35,6 +43,8 @@ var btn = document.querySelectorAll(`a`)
 btn[0].innerHTML = rps[0]
 btn[1].innerHTML = rps[1]
 btn[2].innerHTML = rps[2]
+btn[3].innerHTML = rps[3]
+btn[4].innerHTML = rps[4]
 
 
 //Makes the buttons clickable.
@@ -48,6 +58,13 @@ btn[1].addEventListener(`click`, function(e){
 btn[2].addEventListener(`click`, function(e){
     play(2)
 })
+btn[3].addEventListener(`click`, function(e){
+    play(3)
+})
+btn[4].addEventListener(`click`, function(e){
+    play(4)
+})
+
 
 //original display
 drawStuff();
@@ -60,7 +77,7 @@ function play(pChoice)
     ctx.clearRect(0,0,c.width,c.height);
 
 
-    var cChoice = Math.floor(Math.random()*2.999999)
+    var cChoice = Math.floor(Math.random()*4.999999)
 
     // put diplay of choices here -------
     drawStuff();
@@ -72,10 +89,10 @@ function play(pChoice)
 
     switch(pChoice){
         case 0:
-            drawRock(pPicX, pPicY);
+            drawBanana(pPicX, pPicY);
             if(cChoice === 0)
             {
-                drawRock(cPicX, cPicY);
+                drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
@@ -84,54 +101,188 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawPaper(cPicX, cPicY);
+                drawApple(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);                
+            }
+            else if(cChoice === 2)
+            {
+                //computer win
+                CompW++;
+
+                drawGrape(cPicX, cPicY);
+                //display a win
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
+            }
+            else if(cChoice === 3)
+            {
+               //Player win
+               PlayerW++;
+
+               drawStrawberry(cPicX, cPicY);
+               //display a loss
+               ctx.fillText("All Luck", 500, 300); 
             }
             else
             {
                 //Player win
                 PlayerW++;
 
-                drawScissors(cPicX, cPicY);
+                drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("All Luck", 500, 300);
             }
         break;
 
         case 1:
-            drawPaper(pPicX, pPicY);
+            drawApple(pPicX, pPicY);
             if(cChoice === 0)
             {
-                //computer win
-                CompW++;
+                //Player win
+                PlayerW++;
 
-                drawRock(cPicX, cPicY);
+                drawBanana(cPicX, cPicY);
                 //display a Lost
                 ctx.fillText("All Luck", 500, 300);
             }
             else if(cChoice === 1)
             {
-                drawPaper(cPicX, cPicY);
+                drawApple(cPicX, cPicY);
                 //display a Tie
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
+            }
+            else if(cChoice === 2)
+            {
+                //computer win
+                CompW++;
+
+                drawGrape(cPicX, cPicY);
+                //display a win
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
+            } 
+            else if(cChoice === 3)
+            {
+               //computer win
+               CompW++;
+
+               drawStrawberry(cPicX, cPicY);
+               //display a loss
+               ctx.fillText("You're bad, not surprised LOL", 500, 300); 
             }
             else
             {
                 //Player win
                 PlayerW++;
 
-                drawScissors(cPicX, cPicY);
+                drawWatermelon(cPicX, cPicY);
                 //display a win
-                ctx.fillText("You're bad, not surprised LOL", 500, 300);
-            } 
+                ctx.fillText("All Luck", 500, 300);
+            }
+            
         break;
 
         case 2:
-            drawScissors(pPicX, pPicY);
+            drawGrape(pPicX, pPicY);
             if(cChoice === 0)
             {
-                drawRock(cPicX, cPicY);
+                //Player win
+                PlayerW++;
+                
+                drawBanana(cPicX, cPicY);
+                //display a tie
+                ctx.fillText("All Luck", 500, 300);
+            }
+            else if(cChoice === 1)
+            {
+                //Player win
+                PlayerW++;
+
+                drawApple(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("All Luck", 500, 300);
+            }
+            else if(cChoice === 2)
+            {
+                drawGrape(cPicX, cPicY);
+                //display a win
+                ctx.fillText("Tied, shoulda guessed right", 500, 300);
+            }
+            else if(cChoice === 3)
+            {
+                //computer win
+                CompW++;
+ 
+                drawStrawberry(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("You're bad, not surprised LOL", 500, 300); 
+             }
+             else
+             {
+                //computer win
+                CompW++;
+
+                drawWatermelon(cPicX, cPicY);
+                //display a win
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
+             }
+
+        break;
+
+        case 3:
+            drawStrawberry(pPicX, pPicY);
+            if(cChoice === 0)
+            {
+                //computer win
+                CompW++;
+                
+                drawBanana(cPicX, cPicY);
+                //display a tie
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
+            }
+            else if(cChoice === 1)
+            {
+                //Player win
+                PlayerW++;
+
+                drawApple(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("All Luck", 500, 300);
+            }
+            else if(cChoice === 2)
+            {
+                //Player win
+                PlayerW++;
+
+                drawGrape(cPicX, cPicY);
+                //display a win
+                ctx.fillText("All Luck", 500, 300);
+            }
+            else if(cChoice === 3)
+            {
+                drawStrawberry(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("Tied, shoulda guessed right", 500, 300); 
+            }
+            else
+            {
+                //computer win
+                CompW++;
+
+                drawWatermelon(cPicX, cPicY);
+                //display a win
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
+            }
+
+        break;
+
+        case 4:
+            drawWatermelon(pPicX, pPicY);
+            if(cChoice === 0)
+            {
+                //computer win
+                CompW++;
+                
+                drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -140,33 +291,57 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawPaper(cPicX, cPicY);
+                drawApple(cPicX, cPicY);
                 //display a loss
-                ctx.fillText("All Luck", 500, 300);
+                ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
-            else
+            else if(cChoice === 2)
             {
                 //Player win
                 PlayerW++;
 
-                drawScissors(cPicX, cPicY);
+                drawGrape(cPicX, cPicY);
+                //display a win
+                ctx.fillText("All Luck", 500, 300);
+            }
+            else if(cChoice === 3)
+            {
+                //Player win
+                PlayerW++;
+                
+                drawStrawberry(cPicX, cPicY);
+                //display a loss
+                ctx.fillText("All Luck", 500, 300); 
+            }
+            else
+            {
+                drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
-        break;
+
+        break;        
     }
 }
 
-function drawRock(x, y){
-    ctx.drawImage(Rock, x, y,130,130)
+function drawBanana(x, y){
+    ctx.drawImage(banana, x, y,130,130)
 }
 
-function drawPaper(x, y){
-    ctx.drawImage(Paper, x, y,130,130)
+function drawApple(x, y){
+    ctx.drawImage(apple, x, y,130,130)
 }
 
-function drawScissors(x, y){
-    ctx.drawImage(Scissors, x, y,130,130)
+function drawGrape(x, y){
+    ctx.drawImage(grapes, x, y,130,130)
+}
+
+function drawStrawberry(x, y){
+    ctx.drawImage(strawberry, x, y,130,130)
+}
+
+function drawWatermelon(x, y){
+    ctx.drawImage(watermelon, x, y,130,130)
 }
 
 function drawStuff(){
