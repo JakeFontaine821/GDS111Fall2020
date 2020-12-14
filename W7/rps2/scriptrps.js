@@ -89,10 +89,10 @@ function play(pChoice)
 
     switch(pChoice){
         case 0:
-            drawBanana(pPicX, pPicY);
+            ctx.onload = drawBanana(pPicX, pPicY);
             if(cChoice === 0)
             {
-                drawBanana(cPicX, cPicY);
+                ctx.onload = drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
@@ -101,7 +101,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawApple(cPicX, cPicY);
+                ctx.onload = drawApple(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);                
             }
@@ -110,7 +110,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawGrape(cPicX, cPicY);
+                ctx.onload = drawGrape(cPicX, cPicY);
                 //display a win
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -119,7 +119,7 @@ function play(pChoice)
                //Player win
                PlayerW++;
 
-               drawStrawberry(cPicX, cPicY);
+               ctx.onload = drawStrawberry(cPicX, cPicY);
                //display a loss
                ctx.fillText("All Luck", 500, 300); 
             }
@@ -128,26 +128,26 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawWatermelon(cPicX, cPicY);
+                ctx.onload = drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("All Luck", 500, 300);
             }
         break;
 
         case 1:
-            drawApple(pPicX, pPicY);
+            ctx.onload = drawApple(pPicX, pPicY);
             if(cChoice === 0)
             {
                 //Player win
                 PlayerW++;
 
-                drawBanana(cPicX, cPicY);
+                ctx.onload = drawBanana(cPicX, cPicY);
                 //display a Lost
                 ctx.fillText("All Luck", 500, 300);
             }
             else if(cChoice === 1)
             {
-                drawApple(cPicX, cPicY);
+                ctx.onload = drawApple(cPicX, cPicY);
                 //display a Tie
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
@@ -156,7 +156,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawGrape(cPicX, cPicY);
+                ctx.onload = drawGrape(cPicX, cPicY);
                 //display a win
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             } 
@@ -165,7 +165,7 @@ function play(pChoice)
                //computer win
                CompW++;
 
-               drawStrawberry(cPicX, cPicY);
+               ctx.onload = drawStrawberry(cPicX, cPicY);
                //display a loss
                ctx.fillText("You're bad, not surprised LOL", 500, 300); 
             }
@@ -174,7 +174,7 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawWatermelon(cPicX, cPicY);
+                ctx.onload = drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("All Luck", 500, 300);
             }
@@ -182,13 +182,13 @@ function play(pChoice)
         break;
 
         case 2:
-            drawGrape(pPicX, pPicY);
+            ctx.onload = drawGrape(pPicX, pPicY);
             if(cChoice === 0)
             {
                 //Player win
                 PlayerW++;
                 
-                drawBanana(cPicX, cPicY);
+                ctx.onload = drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("All Luck", 500, 300);
             }
@@ -197,13 +197,13 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawApple(cPicX, cPicY);
+                ctx.onload = drawApple(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("All Luck", 500, 300);
             }
             else if(cChoice === 2)
             {
-                drawGrape(cPicX, cPicY);
+                ctx.onload = drawGrape(cPicX, cPicY);
                 //display a win
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }
@@ -212,7 +212,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
  
-                drawStrawberry(cPicX, cPicY);
+                ctx.onload = drawStrawberry(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("You're bad, not surprised LOL", 500, 300); 
              }
@@ -221,7 +221,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawWatermelon(cPicX, cPicY);
+                ctx.onload = drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
              }
@@ -229,13 +229,13 @@ function play(pChoice)
         break;
 
         case 3:
-            drawStrawberry(pPicX, pPicY);
+            ctx.onload = drawStrawberry(pPicX, pPicY);
             if(cChoice === 0)
             {
                 //computer win
                 CompW++;
                 
-                drawBanana(cPicX, cPicY);
+                ctx.onload = drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -244,7 +244,7 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawApple(cPicX, cPicY);
+                ctx.onload = drawApple(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("All Luck", 500, 300);
             }
@@ -253,13 +253,13 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawGrape(cPicX, cPicY);
+                ctx.onload = drawGrape(cPicX, cPicY);
                 //display a win
                 ctx.fillText("All Luck", 500, 300);
             }
             else if(cChoice === 3)
             {
-                drawStrawberry(cPicX, cPicY);
+                ctx.onload = drawStrawberry(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("Tied, shoulda guessed right", 500, 300); 
             }
@@ -268,7 +268,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawWatermelon(cPicX, cPicY);
+                ctx.onload = drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -276,13 +276,13 @@ function play(pChoice)
         break;
 
         case 4:
-            drawWatermelon(pPicX, pPicY);
+            ctx.onload = drawWatermelon(pPicX, pPicY);
             if(cChoice === 0)
             {
                 //computer win
                 CompW++;
                 
-                drawBanana(cPicX, cPicY);
+                ctx.onload = drawBanana(cPicX, cPicY);
                 //display a tie
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -291,7 +291,7 @@ function play(pChoice)
                 //computer win
                 CompW++;
 
-                drawApple(cPicX, cPicY);
+                ctx.onload = drawApple(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("You're bad, not surprised LOL", 500, 300);
             }
@@ -300,7 +300,7 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
 
-                drawGrape(cPicX, cPicY);
+                ctx.onload = drawGrape(cPicX, cPicY);
                 //display a win
                 ctx.fillText("All Luck", 500, 300);
             }
@@ -309,13 +309,13 @@ function play(pChoice)
                 //Player win
                 PlayerW++;
                 
-                drawStrawberry(cPicX, cPicY);
+                ctx.onload = drawStrawberry(cPicX, cPicY);
                 //display a loss
                 ctx.fillText("All Luck", 500, 300); 
             }
             else
             {
-                drawWatermelon(cPicX, cPicY);
+                ctx.onload = drawWatermelon(cPicX, cPicY);
                 //display a win
                 ctx.fillText("Tied, shoulda guessed right", 500, 300);
             }

@@ -1,0 +1,54 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    background-image: url(images/Astoid\ background\ 2.jpg);
+    background-size: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    padding: 10px;
+    font-size: larger;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+a{
+    background-color: orange; 
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: red;
+}
+
+a:active{
+    background-color: grey;
+}
+
+p{
+    text-align: center;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    padding-top: 60px;
+}
