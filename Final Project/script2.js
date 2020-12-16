@@ -31,14 +31,6 @@ InvinBox.src = 'images/Shield.png'
 
 var GodMode = new Image();
 GodMode.src = 'images/GodMode.png'
-/*
-Player.onload = function(){main()}
-Ass.onload = function(){main()}
-Title.onload = function(){main()}
-EndGame.onload = function(){main()}
-InvinBox.onload = function(){main()}
-GodMode.onload = function(){main()}
-*/
 
 //create random range function to enable random numbers for astroids
 function randomRange(high, low){
@@ -209,7 +201,6 @@ function keyPressDown(e){
 }
 
 function keyPressUp(e){
-    //console.log("Key Up " + e.keyCode);
     if(gameOver == false){
         if(e.keyCode === 38){
             ship.up = false;
@@ -256,6 +247,7 @@ gameStates[1] = function(){
         ship.vy = 0;
     }
 
+    //detect collision with power up
     if(gameOver == false){
         var dX = (ship.x + (ship.w / 2)) - (Box.x + (Box.w / 2));
         var dY = (ship.y + (ship.h / 2)) - (Box.y + (Box.h / 2));
@@ -270,6 +262,7 @@ gameStates[1] = function(){
     }
 
     for(var i = 0; i<asteroids.length; i++){
+        //if collided with power up, turn off collision detection between asteroids
         if(God == false){
             //using the distance formula to find distance between ship and asteroid
             var dX = (ship.x + (ship.w)) - (asteroids[i].x + (asteroids[i].radius / 2));
@@ -334,7 +327,6 @@ function scoreTimer(){
         
         if(score % 5 == 0){
             numAsteroids += 5;
-          //  console.log(numAsteroids);
         }
 
         setTimeout(scoreTimer,1000);
