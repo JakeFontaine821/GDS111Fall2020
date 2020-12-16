@@ -15,22 +15,22 @@ var God = false;
 
 //call images
 var Player = new Image();
-Player.src = 'Images/PlayerSprite.png'
+Player.src = 'images/PlayerSprite.png'
 
 var Ass = new Image();
-Ass.src = 'Images/Asteroid.png'
+Ass.src = 'images/Asteroid.png'
 
 var Title = new Image();
-Title.src = 'Images/AstroidTitleScreen.jpg'
+Title.src = 'images/AstroidTitleScreen.jpg'
 
 var EndGame = new Image();
-EndGame.src = 'Images/EndGame.jpg'
+EndGame.src = 'images/EndGame.jpg'
 
 var InvinBox = new Image();
-InvinBox.src = 'Images/Shield.png'
+InvinBox.src = 'images/Shield.png'
 
 var GodMode = new Image();
-GodMode.src = 'Images/GodMode.png'
+GodMode.src = 'images/GodMode.png'
 /*
 Player.onload = function(){main()}
 Ass.onload = function(){main()}
