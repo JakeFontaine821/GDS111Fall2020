@@ -216,7 +216,7 @@ function keyPressUp(e){
 
 //Game States for menus and gameplay
 gameStates[0] = function(){
-   drawTitle(Title);
+   onload.drawTitle(Title);
 }
 
 gameStates[1] = function(){
@@ -303,7 +303,7 @@ gameStates[1] = function(){
 }
 
 gameStates[2] = function(){
-    drawTitle(EndGame);
+    onload.drawTitle(EndGame);
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
     ctx.font = "50px Arial";
@@ -313,7 +313,7 @@ gameStates[2] = function(){
 
 function main(){
     ctx.clearRect(0,0, c.width, c.height);
-    
+
     onload.gameStates[currentState]();
     timer = requestAnimationFrame(main);
 }
