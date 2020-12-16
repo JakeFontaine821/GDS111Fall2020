@@ -174,6 +174,9 @@ function keyPressDown(e){
         if(e.keyCode === 39){
             ship.right = true;
         }
+        if(e.keyCode === 37){
+            ship.left = true;
+        }
     }
     if(gameOver == true){
         if (e.keyCode === 13) {
@@ -211,6 +214,9 @@ function keyPressUp(e){
         if(e.keyCode === 39){
             ship.right = false;
         }
+        if(e.keyCode === 37){
+            ship.left = false;
+        }
     }
 }
 
@@ -231,7 +237,10 @@ gameStates[1] = function(){
     
     //movements and all
     if(ship.right == true){
-        ship.vx = 10;
+        ship.vx = 8;
+    }
+    else if(ship.left == true){
+        ship.vx = -6;
     }
     else{
         ship.vx = -2;
