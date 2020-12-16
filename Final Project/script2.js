@@ -11,6 +11,7 @@ var currentState = 0;
 var ship;
 var Box;
 var highScore = 0;
+var God = false;
 
 //call images
 var Player = new Image();
@@ -38,7 +39,7 @@ function randomRange(high, low){
 
 //Class for the Asteroids
 function Asteroid(){
-    this.radius = randomRange(60,20);
+    this.radius = randomRange(35,10);
     this.x = randomRange(0 + this.radius, c.width - this.radius) + c.width;
     this.y = randomRange(c.height - this.radius, 0 + this.radius);
     this.vx = randomRange(-10, -5);
@@ -47,15 +48,6 @@ function Asteroid(){
 
     this.draw = function(){
         drawAss(this.x,this.y,this.radius,this.radius);
-        /*
-        ctx.save();
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x,this.y,this.radius,0,2*Math.PI,true);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-        */
     }
 }
 
@@ -74,7 +66,7 @@ function PlayerShip(){
     this.x = c.width/2;
     this.y = c.height/2;
     this.w = 20;
-    this.h = 20;
+    this.h = 10;
     this.vx = 0;
     this.vy = 0;
     this.up = false;
@@ -106,7 +98,14 @@ function PlayerShip(){
             ctx.fill();
             ctx.restore();
         }
-        drawPlayer(); 
+
+        if(God == false){
+            drawPlayer(Player); 
+        }
+        else{
+            drawPlayer(GodMode);
+        }
+        
         ctx.restore();
     }
     
@@ -140,20 +139,21 @@ function PlayerShip(){
 
 function Invin(){
     this.x = randomRange(400,50);
-    this.y = -50
+    this.y = -50;
     this.w = 40;
     this.h = 40;
-    this.vy = 3
+    this.vy = 3;
+    this.seconds = 5;
+    this.counter = 0;
 
     this.draw = function(){
-        drawBox();
+        drawBox(Box.x, Box.y,Box.w,Box.h);
     }
     
     this.move = function(){
         Box.y += Box.vy;
         if(score % 10 == 0){
             Box.y = -50;
-            Box.y += Box.vy;
         }
     }
 }
@@ -162,7 +162,7 @@ document.addEventListener('keydown', keyPressDown);
 document.addEventListener('keyup', keyPressUp);
 
 function keyPressDown(e){
-    //console.log("Key Down " + e.keyCode);
+    //console.log("Key Down " + e.keyCode); 
     if(gameOver == false){
         if(e.keyCode === 38){
             
@@ -216,7 +216,7 @@ function keyPressUp(e){
 
 //Game States for menus and gameplay
 gameStates[0] = function(){
-   drawTitle();
+   drawTitle(Title);
 }
 
 gameStates[1] = function(){
@@ -247,31 +247,32 @@ gameStates[1] = function(){
         ship.vy = 0;
     }
 
+    if(gameOver == false){
+        var dX = (ship.x + (ship.w / 2)) - (Box.x + (Box.w / 2));
+        var dY = (ship.y + (ship.h / 2)) - (Box.y + (Box.h / 2));
+        var distBox = Math.sqrt((dX*dX)+(dY*dY));
+
+        if(detectCollision(distBox, (ship.w/2 + (Box.w / 2)))){
+            God = true;
+        }
+        if(score % 10 == 8){
+            God = false;
+        }
+    }
+
     for(var i = 0; i<asteroids.length; i++){
-        /*
-        DO IF ELSE STATEMENT HERE FOR INVINCIBILTY
-        */
+        if(God == false){
+            //using the distance formula to find distance between ship and asteroid
+            var dX = (ship.x + (ship.w)) - (asteroids[i].x + (asteroids[i].radius / 2));
+            var dY = (ship.y + (ship.h / 2)) - (asteroids[i].y + (asteroids[i].radius / 2));
+            var distAss = Math.sqrt((dX*dX)+(dY*dY));
 
-        // START ELSE HERE
-        
-        //using the distance formula to find distance between ship and asteroid
-        var dX = (ship.x + 15) - asteroids[i].x;
-        if(asteroids[i].y < ship.y){
-            var dY = ship.y - (asteroids[i].y + 20);
+            //checks for collision with asteroid and ends game
+            if(detectCollision(distAss, (ship.w/2 + asteroids[i].radius))){
+                gameOver = true;
+                currentState = 2;
+            }
         }
-        else{
-            var dY = ship.y - (asteroids[i].y - 20);
-        }
-        var dist = Math.sqrt((dX*dX)+(dY*dY));
-
-        //checks for collision with asteroid and ends game
-        if(detectCollision(dist, ((ship.h - 25) + (asteroids[i].radius / 2)))){
-           
-            gameOver = true;
-            currentState = 2;
-        }
-
-        /* END ELSE HERE*/
 
         //checks to see if asteroid is off screen
         if(asteroids[i].x < 0 - asteroids[i].radius){
@@ -302,7 +303,7 @@ gameStates[1] = function(){
 }
 
 gameStates[2] = function(){
-    drawEndGame();
+    drawTitle(EndGame);
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
     ctx.font = "50px Arial";
@@ -323,7 +324,7 @@ function scoreTimer(){
         
         if(score % 5 == 0){
             numAsteroids += 5;
-            console.log(numAsteroids);
+          //  console.log(numAsteroids);
         }
 
         setTimeout(scoreTimer,1000);
@@ -337,26 +338,18 @@ function detectCollision(distance, calcDistance){
     return distance < calcDistance;
 }
 
-function drawPlayer(){
-    ctx.drawImage(Player, -10, -27,50,50);
+function drawPlayer(Thing,w,h){
+    ctx.drawImage(Thing, -10, -27,50,50);
 }
 
 function drawAss( x, y, w, h){
     ctx.drawImage(Ass, x, y, w, h);
 }
 
-function drawTitle(){
-    ctx.drawImage(Title,0,0,800,600);
+function drawTitle(Pic){
+    ctx.drawImage(Pic,0,0,800,600);
 }
 
-function drawEndGame(){
-    ctx.drawImage(EndGame,0,0,800,600);
-}
-
-function drawBox(){
-    ctx.drawImage(InvinBox,Box.x,Box.y,50,50);
-}
-
-function drawGodMode(){
-    ctx.drawImage(GodMode, -10, -27,40,40);
+function drawBox(x,y,w,h){
+    ctx.drawImage(InvinBox,x,y,w,h);
 }

@@ -233,12 +233,10 @@ gameStates[1] = function(){
         var dist = Math.sqrt((dX*dX)+(dY*dY));
         
         //checks for collision with asteroid and ends game
-        if(detectCollision(dist, (ship.h/2 + asteroids[i].radius))){
+        if(detectCollision(dist, (ship.w/2 + asteroids[i].radius))){
            // console.log("We collided with Asteroid " + i);
             gameOver = true;
             currentState = 2;
-            //document.removeEventListener('keydown', keyPressDown);
-            //document.removeEventListener('keyup', keyPressUp);
         }
 
         //checks to see if asteroid is off screen
