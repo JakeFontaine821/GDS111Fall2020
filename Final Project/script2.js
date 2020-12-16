@@ -31,6 +31,14 @@ InvinBox.src = 'Images/Shield.png'
 
 var GodMode = new Image();
 GodMode.src = 'Images/GodMode.png'
+/*
+Player.onload = function(){main()}
+Ass.onload = function(){main()}
+Title.onload = function(){main()}
+EndGame.onload = function(){main()}
+InvinBox.onload = function(){main()}
+GodMode.onload = function(){main()}
+*/
 
 //create random range function to enable random numbers for astroids
 function randomRange(high, low){
@@ -191,6 +199,7 @@ function keyPressDown(e){
             else {
                 gameStart();
                 gameOver = false;
+                console.log(gameOver);
                 currentState = 1;
                 setTimeout(scoreTimer, 1000);
             }
@@ -216,7 +225,7 @@ function keyPressUp(e){
 
 //Game States for menus and gameplay
 gameStates[0] = function(){
-   onload.drawTitle(Title);
+   drawTitle(Title);
 }
 
 gameStates[1] = function(){
@@ -303,7 +312,7 @@ gameStates[1] = function(){
 }
 
 gameStates[2] = function(){
-    onload.drawTitle(EndGame);
+    drawTitle(EndGame);
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
     ctx.font = "50px Arial";
@@ -311,11 +320,12 @@ gameStates[2] = function(){
     ctx.fillText(highScore,575,350);
 }
 
-function main(){
-    ctx.clearRect(0,0, c.width, c.height);
+function main() {
+    ctx.clearRect(0, 0, c.width, c.height);
 
-    onload.gameStates[currentState]();
+    gameStates[currentState]();
     timer = requestAnimationFrame(main);
+    
 }
 
 function scoreTimer(){
