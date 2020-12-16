@@ -314,7 +314,7 @@ gameStates[2] = function(){
 function main(){
     ctx.clearRect(0,0, c.width, c.height);
     
-    gameStates[currentState]();
+    onload.gameStates[currentState]();
     timer = requestAnimationFrame(main);
 }
 
