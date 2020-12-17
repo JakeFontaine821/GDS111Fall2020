@@ -133,6 +133,7 @@ function PlayerShip(){
         if(this.x < -30){
             gameOver = true;
             currentState = 2;
+            God = false;
         }
     }
 }
